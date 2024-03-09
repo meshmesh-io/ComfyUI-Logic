@@ -13,7 +13,7 @@ class AlwaysEqualProxy(str):
         return True
 
     def __ne__(self, _):
-        return False
+        return True
     
 class ForceAlwaysEqualProxy(str):
     def __eq__(self, _):
