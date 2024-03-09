@@ -210,8 +210,8 @@ class IfExecuteInt:
         return {
            "required": {
                 "ANY": ("BOOLEAN",),
-                "IF_TRUE": ("INT", ),
-                "IF_FALSE": ("INT", ),
+                "IF_TRUE": ("INT", {"default": 0, "min": 0, "max": 100000000, "step": 1}),
+                "IF_FALSE": ("INT", {"default": 0, "min": 0, "max": 100000000, "step": 1}),
             },
         }
 
