@@ -291,6 +291,7 @@ NODE_CLASS_MAPPINGS = {
     "If ANY execute A else B": IfExecute,
     "IfExecuteImage": IfExecuteImage,
     "IfExecuteInt": IfExecuteInt,
+    "IfExecuteBasicPipe": IfExecuteBasicPipe,
     "DebugPrint": DebugPrint,
 }
 
@@ -304,5 +305,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "If ANY execute A else B": "If",
     "IfExecuteImage": "IfImage",
     "IfExecuteInt": "IfInt",
+    "IfExecuteBasicPipe": "IfBasicPipe",
     "DebugPrint": "DebugPrint",
 }
