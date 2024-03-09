@@ -14,6 +14,13 @@ class AlwaysEqualProxy(str):
 
     def __ne__(self, _):
         return False
+    
+class ForceAlwaysEqualProxy(str):
+    def __eq__(self, _):
+        return True
+
+    def __ne__(self, _):
+        return True
 
 
 class String:
@@ -145,13 +152,13 @@ class IfExecute:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "ANY": (AlwaysEqualProxy("*"),),
-                "IF_TRUE": (AlwaysEqualProxy("*"),),
-                "IF_FALSE": (AlwaysEqualProxy("*"),),
+                "ANY": (ForceAlwaysEqualProxy("*"),),
+                "IF_TRUE": (ForceAlwaysEqualProxy("*"),),
+                "IF_FALSE": (ForceAlwaysEqualProxy("*"),),
             },
         }
 
-    RETURN_TYPES = (AlwaysEqualProxy("*"),)
+    RETURN_TYPES = (ForceAlwaysEqualProxy("*"),)
 
     RETURN_NAMES = "?"
 
