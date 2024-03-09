@@ -55,7 +55,7 @@ class Int:
 
     FUNCTION = "execute"
 
-    CATEGORY = "Logic"
+    CATEGORY = "meshmesh"
 
     def execute(self, value):
         return (value,)
@@ -74,7 +74,7 @@ class Float:
 
     FUNCTION = "execute"
 
-    CATEGORY = "Logic"
+    CATEGORY = "meshmesh"
 
     def execute(self, value):
         return (value,)
@@ -93,7 +93,7 @@ class Bool:
 
     FUNCTION = "execute"
 
-    CATEGORY = "Logic"
+    CATEGORY = "meshmesh"
 
     def execute(self, value):
         return (value,)
@@ -124,7 +124,7 @@ class Compare:
 
     FUNCTION = "compare"
 
-    CATEGORY = "Logic"
+    CATEGORY = "meshmesh"
 
     def compare(self, a, b, comparison):
         """
@@ -164,7 +164,7 @@ class IfExecute:
 
     FUNCTION = "return_based_on_bool"
 
-    CATEGORY = "Logic"
+    CATEGORY = "meshmesh"
 
     def return_based_on_bool(self, ANY, IF_TRUE, IF_FALSE):
         return (IF_TRUE if ANY else IF_FALSE,)
@@ -189,7 +189,7 @@ class DebugPrint:
 
     FUNCTION = "log_input"
 
-    CATEGORY = "Logic"
+    CATEGORY = "meshmesh"
 
     def log_input(self, ANY):
         print(ANY)
