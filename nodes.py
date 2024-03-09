@@ -189,7 +189,7 @@ class IfExecuteImage:
 
     RETURN_TYPES = ("IMAGE",)
 
-    RETURN_NAMES = "?"
+    RETURN_NAMES = "image"
 
     FUNCTION = "return_based_on_bool"
 
@@ -198,6 +198,33 @@ class IfExecuteImage:
     def return_based_on_bool(self, ANY, IF_TRUE, IF_FALSE):
         return (IF_TRUE if ANY else IF_FALSE,)
 
+class IfExecuteInt:
+    """
+    This node executes IF_TRUE if ANY is True, otherwise it executes IF_FALSE.
+
+    ANY can be any input, IF_TRUE and IF_FALSE can be any output.
+    """
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "ANY": (ForceAlwaysEqualProxy("*"),),
+                "IF_TRUE": (ForceAlwaysEqualProxy("*"),),
+                "IF_FALSE": (ForceAlwaysEqualProxy("*"),),
+            },
+        }
+
+    RETURN_TYPES = ("INT",)
+
+    RETURN_NAMES = "int"
+
+    FUNCTION = "return_based_on_bool"
+
+    CATEGORY = "meshmesh"
+
+    def return_based_on_bool(self, ANY, IF_TRUE, IF_FALSE):
+        return (IF_TRUE if ANY else IF_FALSE,)
 
 class DebugPrint:
     """
@@ -234,6 +261,8 @@ NODE_CLASS_MAPPINGS = {
     "Bool": Bool,
     "String": String,
     "If ANY execute A else B": IfExecute,
+    "IfExecuteImage": IfExecuteImage,
+    "IfExecuteInt": IfExecuteInt,
     "DebugPrint": DebugPrint,
 }
 
@@ -245,5 +274,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "Bool": "Bool",
     "String": "String",
     "If ANY execute A else B": "If",
+    "IfExecuteImage": "IfImage",
+    "IfExecuteInt": "IfInt",
     "DebugPrint": "DebugPrint",
 }
