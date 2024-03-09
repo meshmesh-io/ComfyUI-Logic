@@ -181,9 +181,9 @@ class IfExecuteImage:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "ANY": (ForceAlwaysEqualProxy("*"),),
-                "IF_TRUE": (ForceAlwaysEqualProxy("*"),),
-                "IF_FALSE": (ForceAlwaysEqualProxy("*"),),
+                "ANY": ("BOOLEAN",),
+                "IF_TRUE": ("IMAGE",),
+                "IF_FALSE": ("IMAGE",),
             },
         }
 
@@ -208,10 +208,10 @@ class IfExecuteInt:
     @classmethod
     def INPUT_TYPES(s):
         return {
-            "required": {
-                "ANY": (ForceAlwaysEqualProxy("*"),),
-                "IF_TRUE": (ForceAlwaysEqualProxy("*"),),
-                "IF_FALSE": (ForceAlwaysEqualProxy("*"),),
+           "required": {
+                "ANY": ("BOOLEAN",),
+                "IF_TRUE": ("INT", ),
+                "IF_FALSE": ("INT", ),
             },
         }
 
