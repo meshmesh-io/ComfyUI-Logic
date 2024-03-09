@@ -225,6 +225,34 @@ class IfExecuteInt:
 
     def return_based_on_bool(self, ANY, IF_TRUE, IF_FALSE):
         return (IF_TRUE if ANY else IF_FALSE,)
+    
+class IfExecuteBasicPipe:
+    """
+    This node executes IF_TRUE if ANY is True, otherwise it executes IF_FALSE.
+
+    ANY can be any input, IF_TRUE and IF_FALSE can be any output.
+    """
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+           "required": {
+                "ANY": ("BOOLEAN",),
+                "IF_TRUE": ("BASIC_PIPE",),
+                "IF_FALSE": ("BASIC_PIPE",),
+            },
+        }
+
+    RETURN_TYPES = ("BASIC_PIPE",)
+
+    RETURN_NAMES = "basic_pipe"
+
+    FUNCTION = "return_based_on_bool"
+
+    CATEGORY = "meshmesh"
+
+    def return_based_on_bool(self, ANY, IF_TRUE, IF_FALSE):
+        return (IF_TRUE if ANY else IF_FALSE,)
 
 class DebugPrint:
     """
