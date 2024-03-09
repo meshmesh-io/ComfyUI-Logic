@@ -112,8 +112,8 @@ class Compare:
         s.compare_functions = list(COMPARE_FUNCTIONS.keys())
         return {
             "required": {
-                "a": (AlwaysEqualProxy("*"), {"default": 0}),
-                "b": (AlwaysEqualProxy("*"), {"default": 0}),
+                "a": (ForceAlwaysEqualProxy("*"), {"default": 0}),
+                "b": (ForceAlwaysEqualProxy("*"), {"default": 0}),
                 "comparison": (s.compare_functions, {"default": "a == b"}),
             },
         }
@@ -181,7 +181,7 @@ class DebugPrint:
         Takes in any input.
 
         """
-        return {"required": {"ANY": (AlwaysEqualProxy({}),)}}
+        return {"required": {"ANY": (ForceAlwaysEqualProxy({}),)}}
 
     RETURN_TYPES = ()
 
