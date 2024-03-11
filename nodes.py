@@ -281,6 +281,35 @@ class IfExecuteString:
 
     def return_based_on_bool(self, ANY, IF_TRUE, IF_FALSE):
         return (IF_TRUE if ANY else IF_FALSE,)
+    
+class IfExecuteRegionalIPAdapter:
+    """
+    This node executes IF_TRUE if ANY is True, otherwise it executes IF_FALSE.
+
+    ANY can be any input, IF_TRUE and IF_FALSE can be any output.
+    """
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+           "required": {
+                "ANY": ("BOOLEAN",),
+                "IF_TRUE": ("REGIONAL_IPADAPTER",),
+                "IF_FALSE": ("REGIONAL_IPADAPTER",),
+            },
+        }
+
+    RETURN_TYPES = ("REGIONAL_IPADAPTER",)
+
+    RETURN_NAMES = "REGIONAL_IPADAPTER"
+
+    FUNCTION = "return_based_on_bool"
+
+    CATEGORY = "meshmesh"
+
+    def return_based_on_bool(self, ANY, IF_TRUE, IF_FALSE):
+        return (IF_TRUE if ANY else IF_FALSE,)
+
 class DebugPrint:
     """
     This node prints the input to the console.
@@ -320,6 +349,7 @@ NODE_CLASS_MAPPINGS = {
     "IfExecuteInt": IfExecuteInt,
     "IfExecuteBasicPipe": IfExecuteBasicPipe,
     "IfExecuteString": IfExecuteString,
+    "IfExecuteRegionalIPAdapter": IfExecuteRegionalIPAdapter,
     "DebugPrint": DebugPrint,
 }
 
@@ -335,5 +365,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IfExecuteInt": "IfInt",
     "IfExecuteBasicPipe": "IfBasicPipe",
     "IfExecuteString": "IfString",
+    "IfExecuteRegionalIPAdapter": "IfRegionalIPAdapter",
     "DebugPrint": "DebugPrint",
 }
