@@ -254,6 +254,33 @@ class IfExecuteBasicPipe:
     def return_based_on_bool(self, ANY, IF_TRUE, IF_FALSE):
         return (IF_TRUE if ANY else IF_FALSE,)
 
+class IfExecuteString:
+    """
+    This node executes IF_TRUE if ANY is True, otherwise it executes IF_FALSE.
+
+    ANY can be any input, IF_TRUE and IF_FALSE can be any output.
+    """
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+           "required": {
+                "ANY": ("BOOLEAN",),
+                "IF_TRUE": ("STRING", {"default": ""}),
+                "IF_FALSE": ("STRING", {"default": ""}),
+            },
+        }
+
+    RETURN_TYPES = ("STRING",)
+
+    RETURN_NAMES = "string"
+
+    FUNCTION = "return_based_on_bool"
+
+    CATEGORY = "meshmesh"
+
+    def return_based_on_bool(self, ANY, IF_TRUE, IF_FALSE):
+        return (IF_TRUE if ANY else IF_FALSE,)
 class DebugPrint:
     """
     This node prints the input to the console.
@@ -292,6 +319,7 @@ NODE_CLASS_MAPPINGS = {
     "IfExecuteImage": IfExecuteImage,
     "IfExecuteInt": IfExecuteInt,
     "IfExecuteBasicPipe": IfExecuteBasicPipe,
+    "IfExecuteString": IfExecuteString,
     "DebugPrint": DebugPrint,
 }
 
@@ -306,5 +334,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IfExecuteImage": "IfImage",
     "IfExecuteInt": "IfInt",
     "IfExecuteBasicPipe": "IfBasicPipe",
+    "IfExecuteString": "IfString",
     "DebugPrint": "DebugPrint",
 }
