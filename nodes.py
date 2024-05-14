@@ -366,6 +366,34 @@ class IfExecuteRegionalIPAdapter:
     def return_based_on_bool(self, ANY, IF_TRUE, IF_FALSE):
         return (IF_TRUE if ANY else IF_FALSE,)
 
+class IfExecuteConditioning:
+    """
+    This node executes IF_TRUE if ANY is True, otherwise it executes IF_FALSE.
+
+    ANY can be any input, IF_TRUE and IF_FALSE can be any output.
+    """
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+           "required": {
+                "ANY": ("BOOLEAN",),
+                "IF_TRUE": ("CONDITIONING",),
+                "IF_FALSE": ("CONDITIONING",),
+            },
+        }
+
+    RETURN_TYPES = ("CONDITIONING",)
+
+    RETURN_NAMES = "CONDITIONING"
+
+    FUNCTION = "return_based_on_bool"
+
+    CATEGORY = "meshmesh"
+
+    def return_based_on_bool(self, ANY, IF_TRUE, IF_FALSE):
+        return (IF_TRUE if ANY else IF_FALSE,)
+    
 class DebugPrint:
     """
     This node prints the input to the console.
@@ -408,6 +436,7 @@ NODE_CLASS_MAPPINGS = {
     "IfExecuteBasicPipe": IfExecuteBasicPipe,
     "IfExecuteString": IfExecuteString,
     "IfExecuteRegionalIPAdapter": IfExecuteRegionalIPAdapter,
+    "IfExecuteConditioning": IfExecuteConditioning,
     "DebugPrint": DebugPrint,
 }
 
@@ -426,5 +455,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "IfExecuteModel": "IfModel",
     "IfExecuteVAE": "IfVAE",
     "IfExecuteRegionalIPAdapter": "IfRegionalIPAdapter",
+    "IfExecuteConditioning": "IfConditioning",
     "DebugPrint": "DebugPrint",
 }
